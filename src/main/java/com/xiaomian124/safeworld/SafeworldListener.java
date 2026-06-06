@@ -16,6 +16,8 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.Tag;
+import org.bukkit.event.block.Action;
 
 public class SafeworldListener implements Listener {
 
@@ -95,6 +97,17 @@ public class SafeworldListener implements Listener {
         } else if (cause == PlayerTeleportEvent.TeleportCause.NETHER_PORTAL) {
             event.setCancelled(true);
             event.getPlayer().sendMessage("§c你无法进入下界！");
+        }
+    }
+
+    // 禁止玩家打开潜影盒（add in 1.1.0）
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onShulkerBoxOpen(PlayerInteractEvent event) {
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
+        if (event.getClickedBlock() == null) return;
+        if (Tag.SHULKER_BOXES.isTagged(event.getClickedBlock().getType())) {
+            event.setCancelled(true);
+            event.getPlayer().sendMessage("§c你无法打开潜影盒！");
         }
     }
 }
