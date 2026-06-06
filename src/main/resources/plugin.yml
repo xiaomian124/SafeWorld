@@ -1,5 +1,5 @@
 name: SafeWorld
-version: 1.0.0
+version: 1.1.0
 main: com.xiaomian124.safeworld.SafeworldPlugin
 api-version: "1.21"
 author: xiaomian124
