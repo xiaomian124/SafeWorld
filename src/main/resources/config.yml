@@ -1,0 +1,30 @@
+# SafeWorld插件配置文件
+# 目前仅部分功能配置修改，更多请敬请期待
+# 修改配置文件请重启服务器！
+
+# 禁止玩家刷异常NBT物品设置
+forbidden:
+  # 最大允许的附魔等级（超过则拦截，设为 0 表示不检查）
+  max-enchant-level: 5
+  # 最大允许的属性修饰符数值（超过则拦截，设为 0 表示不检查）
+  max-attribute-amount: 100
+  # 是否禁止带有点击执行命令的书籍（书与笔）
+  forbid-command-books: true
+
+  # 药水效果最大等级上限（0=等级I，1=等级II，以此类推）
+  # 设为 -1 表示不检查药水效果
+  max-potion-amplifier: 3
+
+  # 实体生成限制
+  entity:
+    # 是否禁止生成隐形盔甲架
+    forbid-invisible-armor-stand: true
+    # 是否禁止生成带异常样式的文本展示实体
+    forbid-text-display: true
+    # 是否禁止生成方块展示实体
+    forbid-block-display: true
+
+  # 是否禁止使用刷怪蛋（包括手持使用和发射器发射）
+  forbid-spawn-egg: true
+
+# SafeWorld 1.2.0 Config

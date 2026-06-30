@@ -1,13 +1,19 @@
 package com.xiaomian124.safeworld;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SafeworldPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new SafeworldListener(), this);
-        getLogger().info("SafeWorld 插件已启用 - 已禁止危险行为和跨维度传送");
+        saveDefaultConfig();
+
+        FileConfiguration config = getConfig();
+        SafeworldListener listener = new SafeworldListener(config);
+
+        getServer().getPluginManager().registerEvents(listener, this);
+        getLogger().info("SafeWorld 插件已启用 - 已加载配置");
     }
 
     @Override
